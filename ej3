@@ -1,0 +1,23 @@
+# Clase base
+class Vehiculo:
+    def mover(self):
+        raise NotImplementedError("Este método debe ser implementado por una subclase")
+
+# Clase derivada: Coche
+class Coche(Vehiculo):
+    def mover(self):
+        return "El coche se está moviendo por la carretera."
+
+# Clase derivada: Bicicleta
+class Bicicleta(Vehiculo):
+    def mover(self):
+        return "La bicicleta se está moviendo por el carril bici."
+
+# Función que recibe una lista de vehículos
+def mostrar_movimiento(vehiculos):
+    for vehiculo in vehiculos:
+        print(vehiculo.mover())
+
+# Demostración de polimorfismo
+vehiculos = [Coche(), Bicicleta(), Coche()]
+mostrar_movimiento(vehiculos)
