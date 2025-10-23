@@ -1,0 +1,26 @@
+class Empleado:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    # Método base (será "sobrescrito" por las clases hijas)
+    def calcularSalario(self):
+        pass  # No hace nada, cada tipo de empleado lo calcula diferente
+
+
+class EmpleadoPorHora(Empleado):
+    def __init__(self, nombre, horas_trabajadas, pago_por_hora):
+        super().__init__(nombre)
+        self.horas_trabajadas = horas_trabajadas
+        self.pago_por_hora = pago_por_hora
+
+    def calcularSalario(self):
+        return self.horas_trabajadas * self.pago_por_hora
+
+
+class EmpleadoFijo(Empleado):
+    def __init__(self, nombre, salario_mensual):
+        super().__init__(nombre)
+        self.salario_mensual = salario_mensual
+
+    def calcularSalario(self):
+        return self.salario_mensual
